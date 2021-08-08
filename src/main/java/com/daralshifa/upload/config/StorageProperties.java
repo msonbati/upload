@@ -11,6 +11,7 @@ public class StorageProperties {
     /**
      * Folder location for storing files
      */
-    private String location = "src/main/upload-dir";
+    private String signatures = "c:/medical-signature/signatures";
+    private String invoices = "c:/medical-signature/invoices";
 
 }
