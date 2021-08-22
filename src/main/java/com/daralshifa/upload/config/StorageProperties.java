@@ -13,5 +13,6 @@ public class StorageProperties {
      */
     private String signatures = "c:/medical-signature/signatures";
     private String invoices = "c:/medical-signature/invoices";
+    private String signed = "c:/medical-signature/signed";
 
 }

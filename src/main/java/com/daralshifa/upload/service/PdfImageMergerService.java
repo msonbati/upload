@@ -31,23 +31,23 @@ public class PdfImageMergerService {
 
     private int getPageNumber(String signature) {
         if(signature!=null) {
-            final String prefix = signature.substring(0,signature.indexOf("Signature_"));
-            System.out.println(prefix);
-            String filterd = signature.replace(prefix,"").replace(".png", "").replace("Signature_", "");
+            final String prefix = signature.substring(0,signature.indexOf("_"));
+           // System.out.println(prefix);
+            String filterd = signature.replace(prefix,"").replace("_","").replace(".png", "").replace("Signature_", "");
             return Integer.parseInt(filterd);
         }
         return 0;
     }
 
     private void signPage(PdfDocument pdfDoc,String imgSrc,int pageNumber) throws IOException{
-
+        System.out.println("imgSrc = "+ imgSrc);
         ImageData image = ImageDataFactory.create(imgSrc);
         Image imageModel = new Image(image);
         final PdfPage page = pdfDoc.getPage(pageNumber + 1);
        final float width = page.getPageSize().getWidth();
        final float height = page.getPageSize().getHeight();
         AffineTransform at = AffineTransform.getTranslateInstance(width/2, 0f);
-        at.concatenate(AffineTransform.getScaleInstance(30f,30f));
+        at.concatenate(AffineTransform.getScaleInstance(40f,40f));
         PdfCanvas canvas = new PdfCanvas(page);
         float[] matrix = new float[6];
         at.getMatrix(matrix);
